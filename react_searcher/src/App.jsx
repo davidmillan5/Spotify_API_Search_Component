@@ -98,11 +98,17 @@ function App() {
           {albums.map((album, i) => {
             console.log(album);
             return (
-              <Card key={album.id}>
+              <Card key={album.id} className="m-5">
                 <Card.Img src={album.images[0].url} />
                 <Card.Body>
                   <Card.Title>{album.name}</Card.Title>
+                  <Card.Subtitle className="my-2">
+                    {album.artists[0].name}
+                  </Card.Subtitle>
                 </Card.Body>
+                <a href={album.external_urls.spotify} className="btn btn-dark">
+                  Listen
+                </a>
               </Card>
             );
           })}
